@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+
+<f:view contentType="text/html">
+
+	<h:head>
+		<title><ui:insert name="title">T'Store</ui:insert></title>
+		<h:outputStylesheet library="css" name="main.css"></h:outputStylesheet>
+		<h:outputStylesheet library="css" name="mainMenuStyles.css"></h:outputStylesheet>
+		<h:outputStylesheet library="css" name="desktopMain.css"></h:outputStylesheet>
+		<h:outputStylesheet library="css" name="mobileMain.css"></h:outputStylesheet>
+		<h:outputScript library="js" name="common.js" />
+		<h:outputScript library="js" name="mainMenuScript.js" />
+	</h:head>
+
+	<h:body style="margin:0px;">
+
+		<table border="0" cellpadding="0" cellspacing="0" width="100%" class="header-height">
+
+			<tr valign="top">
+				<td style="width: 100%; padding-bottom: 3px;">
+					<div id="header">
+						<ui:insert name="header">
+							<ui:include src="/WEB-INF/templates/mainHeader.xhtml" />
+						</ui:insert>
+						<ui:insert name="blockUI">
+							<ui:include src="/WEB-INF/templates/blockUI.xhtml" />
+						</ui:insert>
+					</div>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<td style="width: 100%; padding: 3px; padding-top: 0px;">
+					<div id="content">
+
+						<p:panel id="mainPanel" style="height:100%; margin-top:5px; border: none;  background:none;">
+
+							<ui:insert name="content">
+
+							</ui:insert>
+
+						</p:panel>
+					</div>
+				</td>
+			</tr>
+
+			<tr valign="top">
+				<td style="width: 100%;">
+					<div id="footer">
+						<ui:insert name="footer">
+							<ui:include src="/WEB-INF/templates/mainFooter.xhtml" />
+						</ui:insert>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+		<script type="text/javascript" language="JavaScript">
+			//          
+
+			// This is called with the results from from FB.getLoginStatus().
+			function statusChangeCallback(response) {
+				console.log('statusChangeCallback');
+				console.log(response);
+				// The response object is returned with a status field that lets the
+				// app know the current login status of the person.
+				// Full docs on the response object can be found in the documentation
+				// for FB.getLoginStatus().
+				if (response.status === 'connected') {
+					// Logged into your app and Facebook.
+					testAPI();
+				} else if (response.status === 'not_authorized') {
+					// The person is logged into Facebook, but not your app.
+					document.getElementById('status').innerHTML = 'Please log '
+							+ 'into this app.';
+				} else {
+					// The person is not logged into Facebook, so we're not sure if
+					// they are logged into this app or not.
+					document.getElementById('status').innerHTML = 'Please log '
+							+ 'into Facebook.';
+				}
+			}
+
+			// This function is called when someone finishes with the Login
+			// Button.  See the onlogin handler attached to it in the sample
+			// code below.
+			function checkLoginState() {
+				FB.getLoginStatus(function(response) {
+					statusChangeCallback(response);
+				});
+			}
+
+			window.fbAsyncInit = function() {
+				FB.init({
+					// Change later
+					appId : '987972287919616',
+					cookie : true, // enable cookies to allow the server to access 
+					// the session
+					xfbml : true, // parse social plugins on this page
+					version : 'v2.2' // use version 2.2
+				});
+
+				// Now that we've initialized the JavaScript SDK, we call 
+				// FB.getLoginStatus().  This function gets the state of the
+				// person visiting this page and can return one of three states to
+				// the callback you provide.  They can be:
+				//
+				// 1. Logged into your app ('connected')
+				// 2. Logged into Facebook, but not your app ('not_authorized')
+				// 3. Not logged into Facebook and can't tell if they are logged into
+				//    your app or not.
+				//
+				// These three cases are handled in the callback function.
+
+				FB.getLoginStatus(function(response) {
+					statusChangeCallback(response);
+				});
+
+			};
+
+			// Load the SDK asynchronously
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id))
+					return;
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+
+			// Here we run a very simple test of the Graph API after login is
+			// successful.  See statusChangeCallback() for when this call is made.
+			function testAPI() {
+				console.log('Welcome!  Fetching your information.... ');
+				FB
+						.api(
+								'/me',
+								function(response) {
+									console.log('Successful login for: '
+											+ response.name);
+									document.getElementById('status').innerHTML = 'Thanks for logging in, '
+											+ response.name + '!';
+								});
+			}
+
+			//
+		</script>
+
+	</h:body>
+</f:view>
+</html>
+

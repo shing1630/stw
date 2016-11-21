@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://primefaces.org/ui"
+	xmlns:mfmts="http://java.sun.com/jsf/composite/components">
+
+<f:subview id="userDtlDialogSubview">
+
+	<h:form id="ctf0002FormDialog">
+		<p:dialog id="userDtlDialog" widgetVar="userDtlDialogWV" modal="true" closable="false" width="400px" height="300px"
+			header="" onShow="" onHide="">
+
+			<h:panelGrid columns="2" style="margin-bottom: 10px">
+
+				<h:outputText value="#{label['ctf0002.id']}" />
+				<p:inputText id="idCode" value="#{ctf0002Controller.ctf0002FormDialog.dialogUser.idCode}" disabled="#{!ctf0002Controller.ctf0002FormDialog.newUser}" />
+
+				<h:outputText value="#{label['ctf0002.pw']}" />
+				<p:inputText id="pwCode" value="#{ctf0002Controller.ctf0002FormDialog.dialogUser.pwCode}" />
+
+				<h:outputText value="#{label['ctf0002.last_name']}" />
+				<p:inputText id="lastName" value="#{ctf0002Controller.ctf0002FormDialog.dialogUser.lastName}" />
+
+				<h:outputText value="#{label['ctf0002.first_name']}" />
+				<p:inputText id="firstName" value="#{ctf0002Controller.ctf0002FormDialog.dialogUser.firstName}" />
+
+				<h:outputText value="#{label['ctf0002.tel']}" />
+				<p:inputText id="telNo" value="#{ctf0002Controller.ctf0002FormDialog.dialogUser.telNo}" />
+
+			</h:panelGrid>
+
+			<p:commandButton id="saveAddBtn" widgetVar="saveAddBtnWV" value="#{label['btn.save']}"
+				rendered="#{ctf0002Controller.ctf0002FormDialog.newUser}" actionListener="#{ctf0002Controller.processSave}"
+				process="@form" oncomplete="PF('userDtlDialogWV').hide();" />
+
+			<p:commandButton id="saveEditBtn" widgetVar="saveEditBtnWV" value="#{label['btn.save']}"
+				rendered="#{!ctf0002Controller.ctf0002FormDialog.newUser}" actionListener="#{ctf0002Controller.processEdit}"
+				process="@form" oncomplete="PF('userDtlDialogWV').hide();" />
+
+			<p:commandButton id="closeBtn" widgetVar="closeBtnWV" value="#{label['btn.close']}"
+				oncomplete="PF('userDtlDialogWV').hide();" />
+
+		</p:dialog>
+
+
+	</h:form>
+	<script type="text/javascript" language="JavaScript">
+		// <![CDATA[
+		// ]]>
+	</script>
+
+
+</f:subview>
+</html>

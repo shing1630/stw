@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+	<application>
+		<locale-config>
+			<default-locale>zh_TW</default-locale>
+			<!-- <default-locale>en</default-locale> -->
+		</locale-config>
+		<resource-bundle>
+			<base-name>main.java.com.stw.resource.label</base-name>
+			<var>label</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>>main.java.com.stw.resource.fldlen</base-name>
+			<var>fldlen</var>
+		</resource-bundle>
+
+		<!-- JSF and spring dependency injection -->
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+	</application>
+
+	<!-- general control -->
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>showLogin</from-outcome>
+			<to-view-id>/LOGIN/login.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>showMainPage</from-outcome>
+			<to-view-id>/INDEX0001/homePage.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
+
+	<managed-bean>
+		<managed-bean-name>now</managed-bean-name>
+		<managed-bean-class>java.util.Date</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+</faces-config>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pe="http://primefaces.org/ui/extensions" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/mainTemplate.xhtml">
+	<ui:define name="content">
+		<h:form id="ctf0002Form">
+			<h:panelGrid columns="1">
+
+				<p:outputPanel autoUpdate="true">
+					<p:dataTable id="userDT" var="user" styleClass="userDT" selectionMode="single"
+						value="#{ctf0002Controller.ctf0002Form.userList}" selection="#{ctf0002Controller.ctf0002Form.selectedUser}"
+						rowKey="#{user.idCode}">
+
+						<p:ajax event="rowDblselect" oncomplete="PF('editBtnWV').jq.click();" />
+
+						<f:facet name="header">
+							<h:outputText value="#{label['common.user']}" />
+						</f:facet>
+						<p:column headerText="#{label['ctf0002.id']}">
+							<h:outputText value="#{user.idCode}" />
+						</p:column>
+						<p:column headerText="#{label['ctf0002.pw']}">
+							<h:outputText value="#{user.pwCode}" />
+						</p:column>
+						<p:column headerText="#{label['ctf0002.last_name']}">
+							<h:outputText value="#{user.lastName}" />
+						</p:column>
+						<p:column headerText="#{label['ctf0002.first_name']}">
+							<h:outputText value="#{user.firstName}" />
+						</p:column>
+						<p:column headerText="#{label['ctf0002.tel']}">
+							<h:outputText value="#{user.telNo}" />
+						</p:column>
+
+						<f:facet name="footer">
+							<p:commandButton id="addBtn" widgetVar="addBtnWV" value="#{label['btn.add']}"
+								oncomplete="PF('userDtlDialogWV').show();" action="#{ctf0002Controller.initAdd}"
+								update="userDtlDialogSubview:ctf0002FormDialog">
+							</p:commandButton>
+							<p:commandButton id="editBtn" widgetVar="editBtnWV" value="#{label['btn.edit']}"
+								oncomplete="handleRequest(xhr, status, args, PF('userDtlDialogWV'));" action="#{ctf0002Controller.initEdit}"
+								update="userDtlDialogSubview:ctf0002FormDialog">
+							</p:commandButton>
+						</f:facet>
+
+					</p:dataTable>
+
+					<pe:tooltip id="userDTTooltip" for="@(.userDT tr)" value="#{label['common.double_click_edit']}"
+						mouseTracking="true" myPosition="top left" adjustX="12" adjustY="12" />
+
+				</p:outputPanel>
+
+			</h:panelGrid>
+		</h:form>
+
+		<ui:include src="userDtlDialog.xhtml" />
+
+	</ui:define>
+</ui:composition>
+
+</html>

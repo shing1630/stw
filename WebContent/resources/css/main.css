@@ -1,0 +1,46 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	font-family: Verdana, Arial, cwTeXHei, sans-serif;
+	font-size: 15px;
+	background-image: url("../resources/img/background/white-brick.png");
+}
+
+table.header-height {
+	height: 92px;
+}
+
+#content {
+	height: 560px;
+}
+
+.ui-widget {
+	font-size: 15px;
+}
+
+@font-face {
+	font-family: 'cwTeXHei';
+	font-style: normal;
+	font-weight: 500;
+	src: url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot);
+	src: url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.eot?#iefix) format('embedded-opentype'),
+		url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff2) format('woff2'),
+		url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.woff) format('woff'),
+		url(//fonts.gstatic.com/ea/cwtexhei/v3/cwTeXHei-zhonly.ttf) format('truetype');
+}
+
+.loginPanel {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.ui-panel, .ui-inputfield, .ui-button {
+	border: none !important;
+}
+
+.blockUI.blockMsg.blockPage.pe-blockui {
+	border: none !important;
+	background: none !important;
+	box-shadow: 0px 0px 0px rgba(0,0,0,0.8) !important;
+}

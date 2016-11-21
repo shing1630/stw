@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/mainTemplate.xhtml">
+	<ui:define name="content">
+		<h:form id="loginForm">
+			<p:panel id="loginPanel" styleClass="loginPanel" style="width:270px; text-align: center;">
+				<h:panelGrid columns="1">
+
+					<h:graphicImage id='mainMenuLogo' value="../resources/img/logo/word_logo.png" />
+
+					<p:messages id="loginMsg" showDetail="true" autoUpdate="true" />
+					<p:inputText id="idCode" value="#{loginController.loginForm.loginUser.idCode}" />
+					<p:watermark id="idCodeWK" for="idCode" value="#{label['common.user_id']}" />
+					<p:password id="pwCode" value="#{loginController.loginForm.loginUser.pwCode}" />
+					<p:watermark id="pwCodeWK" for="pwCode" value="#{label['common.pw']}" />
+
+					<h:panelGrid columns="2" style="width:100%; text-align: center;">
+						<p:commandButton id="loginBtn" value="#{label['btn.login']}" style="width:100%;" onclick="" onstart="startLoad();"
+							oncomplete="endLoad();" action="#{loginController.processLogin}" ajax="true" update="loginPanel" />
+
+						<p:commandButton id="regBtn" value="#{label['btn.reg']}" style="width:100%;" onclick="" onstart="startLoad();"
+							oncomplete="endLoad();" action="#" ajax="true" update="loginPanel" />
+					</h:panelGrid>
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>

@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://controller.stw.com.java.main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://controller.stw.com.java.main" xmlns:intf="http://controller.stw.com.java.main" xmlns:tns1="http://form.controller.stw.com.java.main" xmlns:tns2="http://jpa.stw.com.java.main" xmlns:tns3="http://service.stw.com.java.main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://controller.stw.com.java.main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service.stw.com.java.main"/>
+   <import namespace="http://form.controller.stw.com.java.main"/>
+   <import namespace="http://jpa.stw.com.java.main"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <element name="init">
+    <complexType/>
+   </element>
+   <element name="initResponse">
+    <complexType/>
+   </element>
+   <element name="initAdd">
+    <complexType/>
+   </element>
+   <element name="initAddResponse">
+    <complexType/>
+   </element>
+   <element name="initEdit">
+    <complexType/>
+   </element>
+   <element name="initEditResponse">
+    <complexType/>
+   </element>
+   <element name="processSave">
+    <complexType/>
+   </element>
+   <element name="processSaveResponse">
+    <complexType/>
+   </element>
+   <element name="processEdit">
+    <complexType/>
+   </element>
+   <element name="processEditResponse">
+    <complexType/>
+   </element>
+   <element name="getCtf0002Form">
+    <complexType/>
+   </element>
+   <element name="getCtf0002FormResponse">
+    <complexType>
+     <sequence>
+      <element name="getCtf0002FormReturn" type="tns1:CTF0002Form"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="setCtf0002Service">
+    <complexType>
+     <sequence>
+      <element name="ctf0002Service" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setCtf0002ServiceResponse">
+    <complexType/>
+   </element>
+   <element name="getCtf0002Service">
+    <complexType/>
+   </element>
+   <element name="getCtf0002ServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="getCtf0002ServiceReturn" type="tns3:CTF0002Service"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setCtf0002Form">
+    <complexType>
+     <sequence>
+      <element name="ctf0002Form" type="tns1:CTF0002Form"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setCtf0002FormResponse">
+    <complexType/>
+   </element>
+   <element name="getCtf0002FormDialog">
+    <complexType/>
+   </element>
+   <element name="getCtf0002FormDialogResponse">
+    <complexType>
+     <sequence>
+      <element name="getCtf0002FormDialogReturn" type="tns1:CTF0002FormDialog"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setCtf0002FormDialog">
+    <complexType>
+     <sequence>
+      <element name="ctf0002FormDialog" type="tns1:CTF0002FormDialog"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setCtf0002FormDialogResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://jpa.stw.com.java.main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service.stw.com.java.main"/>
+   <import namespace="http://form.controller.stw.com.java.main"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://controller.stw.com.java.main"/>
+   <complexType name="CUser">
+    <sequence>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="idCode" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+     <element name="pwCode" nillable="true" type="xsd:string"/>
+     <element name="telNo" type="xsd:int"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service.stw.com.java.main"/>
+   <import namespace="http://form.controller.stw.com.java.main"/>
+   <import namespace="http://jpa.stw.com.java.main"/>
+   <import namespace="http://controller.stw.com.java.main"/>
+   <complexType name="Vector">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://form.controller.stw.com.java.main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://service.stw.com.java.main"/>
+   <import namespace="http://jpa.stw.com.java.main"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://controller.stw.com.java.main"/>
+   <complexType name="CTF0002Form">
+    <sequence>
+     <element name="selectedUser" nillable="true" type="tns2:CUser"/>
+     <element name="userList" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+    </sequence>
+   </complexType>
+   <complexType name="CTF0002FormDialog">
+    <sequence>
+     <element name="dialogUser" nillable="true" type="tns2:CUser"/>
+     <element name="newUser" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="setCtf0002ServiceResponse">
+
+      <wsdl:part element="impl:setCtf0002ServiceResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="processSaveResponse">
+
+      <wsdl:part element="impl:processSaveResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCtf0002ServiceRequest">
+
+      <wsdl:part element="impl:getCtf0002Service" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCtf0002FormDialogResponse">
+
+      <wsdl:part element="impl:getCtf0002FormDialogResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCtf0002ServiceResponse">
+
+      <wsdl:part element="impl:getCtf0002ServiceResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCtf0002FormDialogRequest">
+
+      <wsdl:part element="impl:getCtf0002FormDialog" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="initResponse">
+
+      <wsdl:part element="impl:initResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setCtf0002ServiceRequest">
+
+      <wsdl:part element="impl:setCtf0002Service" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="initAddRequest">
+
+      <wsdl:part element="impl:initAdd" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="processSaveRequest">
+
+      <wsdl:part element="impl:processSave" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setCtf0002FormRequest">
+
+      <wsdl:part element="impl:setCtf0002Form" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="initAddResponse">
+
+      <wsdl:part element="impl:initAddResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCtf0002FormRequest">
+
+      <wsdl:part element="impl:getCtf0002Form" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setCtf0002FormDialogRequest">
+
+      <wsdl:part element="impl:setCtf0002FormDialog" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setCtf0002FormDialogResponse">
+
+      <wsdl:part element="impl:setCtf0002FormDialogResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="processEditResponse">
+
+      <wsdl:part element="impl:processEditResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCtf0002FormResponse">
+
+      <wsdl:part element="impl:getCtf0002FormResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="initEditRequest">
+
+      <wsdl:part element="impl:initEdit" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="initRequest">
+
+      <wsdl:part element="impl:init" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="processEditRequest">
+
+      <wsdl:part element="impl:processEdit" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setCtf0002FormResponse">
+
+      <wsdl:part element="impl:setCtf0002FormResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="initEditResponse">
+
+      <wsdl:part element="impl:initEditResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CTF0002Controller">
+
+      <wsdl:operation name="init">
+
+         <wsdl:input message="impl:initRequest" name="initRequest"/>
+
+         <wsdl:output message="impl:initResponse" name="initResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="initAdd">
+
+         <wsdl:input message="impl:initAddRequest" name="initAddRequest"/>
+
+         <wsdl:output message="impl:initAddResponse" name="initAddResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="initEdit">
+
+         <wsdl:input message="impl:initEditRequest" name="initEditRequest"/>
+
+         <wsdl:output message="impl:initEditResponse" name="initEditResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="processSave">
+
+         <wsdl:input message="impl:processSaveRequest" name="processSaveRequest"/>
+
+         <wsdl:output message="impl:processSaveResponse" name="processSaveResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="processEdit">
+
+         <wsdl:input message="impl:processEditRequest" name="processEditRequest"/>
+
+         <wsdl:output message="impl:processEditResponse" name="processEditResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCtf0002Form">
+
+         <wsdl:input message="impl:getCtf0002FormRequest" name="getCtf0002FormRequest"/>
+
+         <wsdl:output message="impl:getCtf0002FormResponse" name="getCtf0002FormResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setCtf0002Service">
+
+         <wsdl:input message="impl:setCtf0002ServiceRequest" name="setCtf0002ServiceRequest"/>
+
+         <wsdl:output message="impl:setCtf0002ServiceResponse" name="setCtf0002ServiceResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCtf0002Service">
+
+         <wsdl:input message="impl:getCtf0002ServiceRequest" name="getCtf0002ServiceRequest"/>
+
+         <wsdl:output message="impl:getCtf0002ServiceResponse" name="getCtf0002ServiceResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setCtf0002Form">
+
+         <wsdl:input message="impl:setCtf0002FormRequest" name="setCtf0002FormRequest"/>
+
+         <wsdl:output message="impl:setCtf0002FormResponse" name="setCtf0002FormResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCtf0002FormDialog">
+
+         <wsdl:input message="impl:getCtf0002FormDialogRequest" name="getCtf0002FormDialogRequest"/>
+
+         <wsdl:output message="impl:getCtf0002FormDialogResponse" name="getCtf0002FormDialogResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setCtf0002FormDialog">
+
+         <wsdl:input message="impl:setCtf0002FormDialogRequest" name="setCtf0002FormDialogRequest"/>
+
+         <wsdl:output message="impl:setCtf0002FormDialogResponse" name="setCtf0002FormDialogResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CTF0002ControllerSoapBinding" type="impl:CTF0002Controller">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="init">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="initRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="initResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="initAdd">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="initAddRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="initAddResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="initEdit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="initEditRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="initEditResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="processSave">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="processSaveRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="processSaveResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="processEdit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="processEditRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="processEditResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCtf0002Form">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCtf0002FormRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCtf0002FormResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setCtf0002Service">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setCtf0002ServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setCtf0002ServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCtf0002Service">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCtf0002ServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCtf0002ServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setCtf0002Form">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setCtf0002FormRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setCtf0002FormResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCtf0002FormDialog">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCtf0002FormDialogRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCtf0002FormDialogResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setCtf0002FormDialog">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setCtf0002FormDialogRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setCtf0002FormDialogResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CTF0002ControllerService">
+
+      <wsdl:port binding="impl:CTF0002ControllerSoapBinding" name="CTF0002Controller">
+
+         <wsdlsoap:address location="http://localhost:8080/STW/services/CTF0002Controller"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
