@@ -3,11 +3,11 @@
 Java web application sample
 
 
-## System Architecture
+# System Architecture
 
 Model-View-Controller (MVC)
 
-# Front-end
+## Front-end
 ![JSF](https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/20110510-jsf-logo.tiff/lossless-page1-320px-20110510-jsf-logo.tiff.png)
 ![primefaces](http://www.bradchen.com/images/primefaces-logo.png)
 
@@ -17,7 +17,7 @@ JSF framework with primefaces javascript library to present the user interface.
 http://www.primefaces.org/
 
 
-# Back-end
+## Back-end
 
 ![Spring](https://acntech.no/content/images/2016/10/logo-spring-103x60.png)
 ![Eclipselink](https://wiki.eclipse.org/images/6/6b/Eclipselink-logo.gif)
