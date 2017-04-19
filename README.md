@@ -20,7 +20,7 @@ JSF framework with primefaces javascript library to present the user interface.
 http://www.primefaces.org/
 
 
-![Spring](https://upload.wikimedia.org/wikipedia/en/2/20/Pivotal_Java_Spring_Logo.png)
+![Spring](https://acntech.no/content/images/2016/10/logo-spring-103x60.png)
 ![Eclipselink](https://wiki.eclipse.org/images/6/6b/Eclipselink-logo.gif)
 
 Back-end: Spring framework + JPA - Eclipselink
